@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style>
+      .parent {
+        background-color: aqua;
+				height: 400px;
+        width: 400px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .child {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        color: white;
+        margin-right: 8px;
+        border: 1px solid black;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="parent">
+      <div class="child">자식1</div>
+      <div class="child">자식2</div>
+      <div class="child">자식3</div>
+    </div>
+  </body>
+</html>
