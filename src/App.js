@@ -5,7 +5,7 @@ import Midterm from './Midterm';
 function App() {
   return (
     <div className="App">
-
+      <Midterm />
     </div>
   );
 }
