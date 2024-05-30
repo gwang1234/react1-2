@@ -2,6 +2,84 @@
 
 <br><br><br><br>
 
+## 5월 29일
+<br>
+
+### select 태그
+* select 태그도 textArea와 동일함
+
+### File input 태그
+* File input 태그는 그 값이 읽기 전용이기 때문에 리액트에서는 비제어 컴포넌트가 됩니다.
+
+### Input Null Value
+* 제어 컴포넌트에 value prop을 정해진 값으로 넣으면 코드를 수정하지 않는 한 입력값을 바꿀 수 없습니다.
+* 만약 value prop은 넣되 자유롭게 입력할 수 있게 만들고 싶다면 값이 `undefined` 또는 `null`을 넣어주면 됩니다.  <br><br>
+
+`example`
+```.js
+export default function SignUp() {
+
+    const [name, setName] = useState()
+    const [gender, setGender] = useState('남자')
+    const [document, setDocument] = useState()
+    const [haveBreakfest, setHaveBreakfest] = useState()
+
+<!-- 핸들러 설정 -->
+    const handleChangeName = (e) => {
+        setName(e.target.value)
+    }
+    const handleSubmit = (e) => {
+        alert(`이름: ${name}, 성별: ${gender}, 문서: ${document}, 아침식사: ${haveBreakfest}`)
+        e.preventDefault()
+    }
+    const handleChangeGender = (e) => {
+        setGender(e.target.value)
+    }
+    const handleChangeDocument = (e) => {
+        setDocument(e.target.value)
+    }
+    const handleChangeHaveBreakfast = (e) => {
+        setHaveBreakfest(e.target.checked)
+      }
+
+
+    return (
+        <form onSubmit={handleSubmit}>
+        <!-- text -->
+            <label>
+                이름:
+                <input type="text" value={name} onChange={handleChangeName} placeholder="이름을 입력해 주세요."/>
+            </label><br/>
+            <!-- select -->
+            <label>
+                성별:
+                <select value={gender} onChange={handleChangeGender}>
+                    <option value="남자">남자</option>
+                    <option value="여자">여자</option>
+                </select>
+            </label><br/>
+            <!-- textarea -->
+            <label>
+                문서:
+                <textarea value={document} onChange={handleChangeDocument} placeholder="문장을 입력해주세요."></textarea>
+            </label><br/>
+            <!-- check -->
+            <label>
+            아침식사: 
+            <input type="checkbox" 
+                    checked={haveBreakfest}
+                    onChange={handleChangeHaveBreakfast} />
+            </label>
+            <button type="submit" >제출</button>
+        </form>
+    )
+}
+```
+
+
+
+<br><br><br><br>
+
 ## 5월 22일
 
 ### 리스트와 키
