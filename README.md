@@ -2,6 +2,116 @@
 
 <br><br><br><br>
 
+
+## 6월 12일
+
+### CSS
+  - css는 Cascading Style Sheet의 약자로 스타일링을 위한 언어입니다
+  - Cascading이란 계단식이란 뜻으로 한 엘리먼트에 여러 스타일이 적용될 경우 `스타일 간의 충돌을 막기 위해 계단식으로 스타일을 적용`시키는 규칙을 갖고 있습니다
+  - 즉 하나의 스타일이 여러 `개의 엘리먼트에 적용될 수도` 있고, `하나의 엘리먼트에도 여러 개의 스타일이 적용될 수도` 있습니다
+  - 엘리먼트에 스타일이 `적용되는 규칙을 selector`라고 합니다. css는 이 `선택자와 스타일`로 이루어집니다
+  - 이번 장에서는 `선택자와 스타일을 카테고리별로 나누어` 학습합니다.
+
+### CSS 문법과 선택자
+  - 선택자를 먼저 쓰고 다음에 적용할 스타일을 중괄호 안에 세미콜론으로 구분하여 하나씩 작성합니다.
+    - 선택자는 Html 엘리먼트를 직접 넣어도 되고, 엘리먼트의 조합 혹은 class의 형태로 작성 가능합니다
+  - 스타일은 property와 key value로 이루어 지며, 이들은 콜론으로 구분하고, 각 스타일은 세미콜론으로 구분합니다
+  - 교재는 몇 가지 선택자의 예를 설명하고 있습니다
+
+<br>
+
+#### 예시
+
+  1. 첫번째는 태그를 직접 사용하는 것입니다
+
+<br> 
+
+  ![강아지](tagStyle.png) 
+
+  2. 두번째는 id 선택자 입니다 **js에서 사용하기 때문에 절대 사용금지**
+
+  3. 세번째는 class 선택자 입니다
+
+  <br>
+
+
+  ![강아지](idStyle.png) 
+
+  4. 네번째는 전체 선택자입니다
+
+  5. 다섯번째는 그룹 선택자 입니다
+
+  6. 여섯번째는 상태 선택자 입니다
+
+
+### 레이아웃과 관련된 속성
+  - 화면에 엘리먼트를 어떻게 배치할 것인지를 정의 합니다
+  - 가장 중요한 속성은 display입니다
+  - 모든 엘리먼트는 기본 display 속성을 갖고 있지만 이 기본값을 변경해 줄 수 있습니다
+
+  - #### 각 속성들
+    - none: 존재는 하지만 화면에 보이지 않는 것으로, 자바스크립트를 넣을 때 많이 사용합니다
+    - block: 세로로 정렬되며, with의 heigh를 갖을 수 있다
+    - inline: 가로로 정렬되며, with의 heigh를 갖을 수 없다
+    - inline-block: inline의 특징과 block의 특징을 모두 가진 요소
+    - flex: 컨테이너의 형태로 엘리먼트를 관리합니다
+
+    ###### *최근 들어서는 Grid를 많이 사용합니다. flex가 1차원이면 Grid는 2차원으로 관리합니다*
+
+block 요소들  
+address, article, aside, blockgquote, canvas, dd, div, dl, hr, header, form,h1, h2, h3, h4, h5, h6, table, pre, ul, p, ol, video
+
+inline 요소들  
+a, i, span, abbr, img, strong, b, input, sub, br, code, em, small, tt, map, textarea, label, sup, q, button, cite
+
+![강아지](inline-block.png) 
+
+<br><br>
+
+
+  - visibility 속성은 엘리먼트의 가시성을 정의합니다
+  - 여기서 중요한 것은 displat:none과 visivility:hidden의 차이입니다
+  - dispaly:none은 엘리먼트의 영역이 보이지 않고, visibility:hidden는 차지하는 영역은 보입니다
+  - 다음으로 position 속성은 엘리먼트를 어떻게 위치시킬 것인지를 정의합니다
+  - static은 원래 순서대로 위치 시킵니다
+  - fixed는 window에 상대적위치라고 정의 하지만 지금은 sticky로 바뀌었습니다
+  - relative는 상대적, absolute는 절대적 위치를 지정합니다.
+
+### font
+  - font-size 등 크기를 나타내는 단위로는 px, em, rem, vm 등이 있습니다
+  - 1em은 16px과 동일합니다
+
+### styled-components
+  - css 문법을 그대로 사용하려면 결과물을 스타일링된 컴포넌트 형태로 만들어 주는 오픈소스 라이브러리입니다
+  - 리액트 개발에 많이 사용합니다
+
+  - 1. styled-components 설치하기  
+     npm install -- styled-componets  
+     npm v5부터는 사용하지 않아도 됩니다
+
+     <br>
+
+  - 2. styled-components 기본 사용법  
+    태그드 템플릿 리터럴을 사용하여 구성 요소의 스타일을 지정합니다  
+    태그드 탬플릿 리터럴은 자바스트립트에서 제공하는 문법 중 하나로 리터럴을 템플릿 형태로 사용하는 것입니다
+    style.\<HTML tag>\`...\`의 형태로 정의한 후 컴포넌트를 생성해서 사용합니다
+
+     <br>
+
+  - 3. styled-componets의 props 사용하기
+    props를 이용하여 조건이나 동적으로 변하는 값을 사용해서 스타일링을 할 수 있습니다
+
+  - 4. styled-componets의 스타일 확장하기
+    - 먼저 정의한 스타일 컴포넌트에 스타일을 추가하여 재정의 하는 것이 가능합니다
+    
+
+
+
+
+
+<br><br><br><br>
+
+
 ## 6월 11일
 
 <br>
